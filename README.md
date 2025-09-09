@@ -36,7 +36,7 @@ rds.tf                  # Provisiona o banco de dados MySQL no Amazon RDS
 efs.tf                  # Provisiona o sistema de arquivos compartilhado Amazon EFS
 alb.tf                  # Cria o Application Load Balancer, Target Group e Listener
 asg.tf                  # Define o Launch Template e o Auto Scaling Group
-user-data-docker.sh     # Script de inicialização (instala Docker, monta EFS, etc.)
+user-data.sh     # Script de inicialização (instala Docker, monta EFS, etc.)
 outputs.tf              # Define as saídas do projeto (DNS do Load Balancer para facilitar)
 ```
 
