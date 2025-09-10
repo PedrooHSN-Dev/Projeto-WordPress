@@ -122,7 +122,7 @@ Esse teste garante que o ASG está escalonando as EC2 de acordo com a demanda.
    ```bash
    siege -c 60 -t 6M http://SEU-ALB-DNS-AQUI.elb.amazonaws.com/
    ```
-  -c 60: Define 26 usuários concorrentes (concurrency).
+   -c 60: Define 26 usuários concorrentes (concurrency).
   -t 6M: Define a duração do teste para 6 minutos (Time).
 3. Observe na aba EC2>Auto Scaling Group o monitoramento do seu ASG ou no CloudWatch, o CPU Utilization subindo para acima de 50%.
 4. Espere até que o ASG crie uma nova instância que poderá ver na aba EC2>Instâncias.
