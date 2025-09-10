@@ -110,6 +110,24 @@ Este teste garante que o ALB está redirecionando o tráfego corretamente em cas
 5.  Recarregue seu site no navegador. Ele deve continuar funcionando normalmente, pois o ALB redirecionou todo o tráfego para a instância saudável.
 6.  Para restaurar, execute `sudo docker-compose up -d` na instância.
 
+### Testando o Auto Scaling Group
+
+Esse teste garante que o ASG está escalonando as EC2 de acordo com a demanda.
+
+1. Instale a ferramenta de linha de comando siege
+   ```bash
+   sudo apt-get install siege
+   ```
+2. Sobrecarregue o sistema acima de 50% de CPU Utilization com o comando
+   ```bash
+   siege -c 60 -t 6M http://SEU-ALB-DNS-AQUI.elb.amazonaws.com/
+   ```
+  -c 60: Define 26 usuários concorrentes (concurrency).
+  -t 6M: Define a duração do teste para 6 minutos (Time).
+3. Observe na aba EC2>Auto Scaling Group o monitoramento do seu ASG ou no CloudWatch, o CPU Utilization subindo para acima de 50%.
+4. Espere até que o ASG crie uma nova instância que poderá ver na aba EC2>Instâncias.
+5. CTRL+C para desativar o siege.
+
 ## 💣 Destruindo a Infraestrutura
 
 Execute o seguinte comando e confirme digitando `yes`:
